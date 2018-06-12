@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
 import faBandcamp from '@fortawesome/fontawesome-free-brands/faBandcamp';
+import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 
@@ -24,16 +26,21 @@ const Container = styled.div`
     align-items: center;
 `
 
-
+/**
+ * Rajout de Link sur les icones
+ */
 export default class Header extends React.Component {
     render() {
         return (
             <HeaderStyle>
                 <Container>
-                    <FontAwesomeIcon icon={faInstagram} size="2x" />
+                    <Link to="/"><FontAwesomeIcon icon={faInstagram} size="2x" /></Link>
                     <H1>InstaReact</H1>
                 </Container>
-                <FontAwesomeIcon icon={faBandcamp} size="2x" />
+                <Container>
+                    <Link to="/people"><FontAwesomeIcon icon={faBandcamp} size="2x" /></Link>
+                    <Link to="/me"><FontAwesomeIcon icon={faUser} size="2x" /></Link>
+                </Container>
             </HeaderStyle>
         )
     }
